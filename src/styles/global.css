@@ -1,0 +1,209 @@
+/* =============================
+   RESET
+============================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =============================
+   THEME VARIABLES
+============================= */
+
+:root {
+  --bg-main: #f3f4f6;
+  --bg-card: #ffffff;
+
+  --text-main: #111827;
+  --text-muted: #6b7280;
+
+  --border-color: #e5e7eb;
+
+  --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+}
+
+/* =============================
+   DARK MODE
+============================= */
+
+body.dark {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+
+  --text-main: #f9fafb;
+  --text-muted: #94a3b8;
+
+  --border-color: #334155;
+
+  --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+
+  --accent: #6366f1;
+  --accent-soft: #312e81;
+}
+
+/* =============================
+   LAYOUT
+============================= */
+
+.layout {
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 28px;
+}
+
+/* =============================
+   TITLES
+============================= */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-main);
+}
+
+/* =============================
+   CARDS
+============================= */
+
+.stat-card,
+.financial-overview,
+.table-card,
+.charts-grid > div,
+.bottom-grid > div,
+.budget-container {
+  background: var(--bg-card);
+  box-shadow: var(--card-shadow);
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+}
+
+/* =============================
+   TEXT HELPERS
+============================= */
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* =============================
+   BUTTONS
+============================= */
+
+.icon-btn {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.icon-btn:hover {
+  background: var(--accent-soft);
+}
+
+/* =============================
+   TOPBAR
+============================= */
+
+.topbar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* =============================
+   SIDEBAR
+============================= */
+
+.sidebar {
+  background: linear-gradient(180deg, #0f172a, #020617);
+}
+
+
+/* =============================
+   INPUT + SELECT FIX
+============================= */
+
+input,
+select {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+body.dark input,
+body.dark select {
+  background: #1e293b;
+  color: #f9fafb;
+  border: 1px solid #334155;
+}
+
+.report-table,
+.transactions-table {
+  overflow-x: auto;
+}
+
+table {
+  min-width: 600px;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* =============================
+   SMOOTH TRANSITIONS
+============================= */
+
+button, .card, .theme-card {
+  transition: 0.2s ease;
+}
+
+.loader {
+  padding: 20px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.topbar,
+.budget-header,
+.report-header {
+  contain: layout paint;
+}
+
+/* GLOBAL RESPONSIVE */
+* {
+  box-sizing: border-box;
+}
+
+img, svg {
+  max-width: 100%;
+}
+
+/* MOBILE BASE */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}

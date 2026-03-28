@@ -1,0 +1,215 @@
+.analytics-page {
+  max-width: 1400px;
+  margin: auto;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+/* ================= HEADER ================= */
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.analytics-title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.analytics-header select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 14px;
+} 
+/* ================= GRID ================= */
+.analytics-grid-1 {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 24px;
+}
+.analytics-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+} 
+/* ================= CARDS ================= */
+.analytics-card {
+  background:var(--bg-card);
+border-radius:12px;
+padding:20px;
+box-shadow:var(--card-shadow);
+display:flex;
+flex-direction:column;
+gap:12px;
+} 
+/* ================= FINANCIAL SCORE ================= */
+.score-card {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.score-card svg {
+  margin-top: 0px;
+} 
+/* gauge container */
+.gauge-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+/* financial health ring */
+.gauge-container::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 3px solid rgba(34, 197, 94, 0.3);
+} 
+/* pulse animation */
+.pulse-ring::before {
+  animation: healthPulse 2.5s ease-in-out infinite;
+}
+@keyframes healthPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+.pulse-ring {
+  animation: pulseRing 2s infinite;
+}
+@keyframes pulseRing {
+  0% {
+    stroke-opacity: 0.8;
+    stroke-width: 3;
+  }
+  50% {
+    stroke-opacity: 0.3;
+    stroke-width: 6;
+  }
+  100% {
+    stroke-opacity: 0.8;
+    stroke-width: 3;
+  }
+} 
+/* ================= CHART CARD ================= */
+.chart-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--soft-shadow);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+} /* ================= CHART HEADER ================= */
+.chart-header {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+} /* ================= DIVIDER ================= */
+.chart-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0 8px 0;
+} /* ================= CHART BODY ================= */
+.chart-body {
+  flex: 1;
+} /* ================= TOOLTIP ================= */
+.tooltip {
+  background: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+} /* ================= INSIGHTS ================= */
+.insights-list {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+.insight-recommendation {
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+.insights-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.insight {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.insight-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+} /* severity colors */
+.insight-critical {
+  background: #fef2f2;
+  border-top: 4px solid #dc2626;
+}
+.insight-warning {
+  background: #fffbeb;
+  border-top: 4px solid #f59e0b;
+}
+.insight-good {
+  background: #ecfdf5;
+  border-top: 4px solid #22c55e;
+} 
+/* ✅ DARK MODE FIX (Q3 ONLY) */
+
+body.dark .insight-critical{
+background:#7f1d1d;
+color:#f87171;
+}
+
+body.dark .insight-warning{
+background:#78350f;
+color:#fbbf24;
+}
+
+body.dark .insight-good{
+background:#064e3b;
+color:#34d399;
+}
+
+body.dark .insight{
+color:#f9fafb;
+}
+/* ================= RECHARTS FIX ================= */
+.recharts-legend-wrapper {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.recharts-default-legend {
+  flex-wrap: wrap;
+} 
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1000px) {
+  .analytics-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .chart-card {
+    height: 260px;
+  }
+}

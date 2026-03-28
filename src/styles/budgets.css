@@ -1,0 +1,210 @@
+/* ================= PAGE ================= */
+
+.budget-page {
+  padding: 0px;
+}
+
+.budget-header {
+  font-size: 28px;
+  font-weight: 600;
+
+  margin-bottom: 4px;
+}
+
+/* ================= LAYOUT ================= */
+
+.budget-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+/* ================= RINGS SECTION ================= */
+
+.rings-section {
+   grid-column: 1;
+  grid-row: 1;
+  margin-top: 10px;
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: 10px;
+}
+
+.ring-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.rings-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+}
+
+.rings-header select{
+padding:6px 10px;
+border-radius:6px;
+border:1px solid var(--border);
+font-size:14px;
+}
+
+/* INLINE EDIT POPUP */
+
+.edit-popup {
+  position: fixed;
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+  width: 180px;
+}
+
+.edit-popup input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.edit-actions button {
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.cancel-btn {
+  background: #ef4444;
+}
+/* ================= RING SVG ================= */
+
+.ring-bg {
+  fill: none;
+  stroke: var(--ring-bg);
+  opacity: 0.35;
+}
+
+.ring-progress {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.ring-progress:hover {
+  stroke-width: 12;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+}
+
+/* ================= TOOLTIP ================= */
+
+.ring-tooltip {
+  position: fixed;
+  background: #111827;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+/* INSIGHTS */
+.insights-section {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: 10px;
+}
+
+
+.insight-item {
+  padding: 10px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+/* BOTTOM */
+.summary-section {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.summary-card {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.summary-card span {
+  display: block;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.summary-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* goal section*/
+.goals-section {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+
+/* ================= LIGHT THEME ================= */
+
+:root {
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+  --ring-bg: #e5e7eb;
+  --primary: #6366f1;
+}
+
+/* ================= DARK MODE ================= */
+
+.dark {
+  --card-bg: #1f2937;
+  --border: #374151;
+  --ring-bg: #374151;
+  --primary: #6366f1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .budget-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-section,
+  .goals-section {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .ring-wrapper svg {
+    width: 200px;
+    height: 200px;
+  }
+}

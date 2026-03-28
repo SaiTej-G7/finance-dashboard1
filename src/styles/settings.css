@@ -1,0 +1,266 @@
+.settings-page {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.settings-title {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* LAYOUT */
+
+.settings-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+/* CARD (FIXED FOR DARK MODE) */
+
+.settings-card {
+  padding: 22px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: 0.3s;
+}
+
+/* LIGHT MODE (glass) */
+body:not(.dark) .settings-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* DARK MODE (solid clean) */
+body.dark .settings-card {
+  background: #111827; /* deep dark */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+/* PROFILE */
+
+.profile-header {
+  text-align: center;
+}
+
+.avatar {
+  position: relative;
+  width: 100px;
+  margin: auto;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.edit-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #4f46e5;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.subtitle {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* FORM */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+/* LIGHT */
+body:not(.dark) .form-group input {
+  background: #fff;
+  color: #111;
+}
+
+/* DARK */
+body.dark .form-group input {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+/* BUTTON */
+
+.save-btn {
+  margin-top: 12px;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* RIGHT */
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* THEME */
+.theme-options {
+  display: flex;
+  gap: 12px;
+}
+
+/* DEFAULT (inactive) */
+.theme-card {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+/* LIGHT MODE inactive */
+body:not(.dark) .theme-card {
+  background: #f3f4f6;
+  color: #010712;
+}
+
+/* DARK MODE inactive */
+body.dark .theme-card {
+  background: #212c3b;
+  color: #c1c5cc;
+}
+
+/* ACTIVE BASE */
+.theme-card.active {
+  transform: scale(1.02);
+}
+
+/* 🔥 LIGHT ACTIVE (IMPORTANT FIX) */
+.theme-card.light-active {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 🔥 DARK ACTIVE */
+.theme-card.dark-active {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+}
+
+/* ICON inherits text color */
+.theme-icon {
+  font-size: 16px;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+}
+
+/* SELECT */
+.modern-select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* LIGHT */
+body:not(.dark) .modern-select {
+  background: #fff;
+  color: #111;
+}
+
+/* DARK */
+body.dark .modern-select {
+  background: #1f2937;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
+/* TOGGLE */
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #ccc;
+  border-radius: 20px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #4f46e5;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .settings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    order: 1;
+  }
+
+  .right-column {
+    order: 2;
+  }
+}

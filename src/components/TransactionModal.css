@@ -1,0 +1,94 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.glass-modal {
+  width: 520px;
+
+  padding: 40px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.glass-modal h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.glass-modal form {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.glass-modal input,
+.glass-modal select {
+  padding: 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--border);
+
+  font-size: 14px;
+}
+
+.glass-modal input:focus,
+.glass-modal select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.form-actions {
+  grid-column: span 2;
+
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+.form-actions button {
+  padding: 10px 16px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.form-actions button:first-child {
+  background: #16be0a;
+  color: white;
+}
+
+.form-actions button:last-child {
+  background: #e51717;
+}
+
+.subcategory-field{
+grid-column:span 2;
+}
