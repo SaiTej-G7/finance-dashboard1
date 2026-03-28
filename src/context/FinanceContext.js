@@ -68,17 +68,27 @@ const incomeCategories = [
   { name: "Other Income", subcategories: ["Misc"] },
 ];
 
-
+const defaultData = {
+  transactions: [
+    [{"id":"1773811124626","amount":"1000","type":"income","category":"Other Income","subcategory":"Misc","date":"2026-03-30","paymentMethod":"Cash"},{"id":"1773811087129","amount":"2000","type":"income","category":"Refunds","subcategory":"Tax Refund","date":"2026-03-23","paymentMethod":"UPI"},{"id":"1773462611636","amount":"1000","type":"expense","category":"Education","subcategory":"Books","date":"2026-03-15","paymentMethod":"Cash"},{"id":"1773414536744","amount":"3000","type":"expense","category":"Food","subcategory":"Restaurant","date":"2026-03-31","paymentMethod":"Cash"},{"id":"1773414363067","amount":"2400","type":"expense","category":"Others","subcategory":"Misc","date":"2026-03-31","paymentMethod":"UPI"},{"id":"1773414314579","amount":"3000","type":"income","category":"Gifts","subcategory":"Family","date":"2026-03-30","paymentMethod":"Cash"},{"id":"1773414288964","amount":"3600","type":"expense","category":"Shopping","subcategory":"Accessories","date":"2026-03-29","paymentMethod":"UPI"},{"id":"1773414239797","amount":"2000","type":"expense","category":"Travel","subcategory":"Hotel","date":"2026-03-27","paymentMethod":"Cash"},{"id":"1773414200429","amount":"5000","type":"expense","category":"Health","subcategory":"Insurance","date":"2026-03-25","paymentMethod":"UPI"},{"id":"1773414159483","amount":"3000","type":"expense","category":"Shopping","subcategory":"Clothing","date":"2026-03-20","paymentMethod":"Cash"},{"id":"1773414130314","amount":"500","type":"expense","category":"Transport","subcategory":"Fuel","date":"2026-03-14","paymentMethod":"Cash"},{"id":"1773414093701","amount":"800","type":"expense","category":"Bills","subcategory":"Internet","date":"2026-03-10","paymentMethod":"UPI"},{"id":"1773414056553","amount":"1000","type":"expense","category":"Entertainment","subcategory":"Movies","date":"2026-03-13","paymentMethod":"Cash"},{"id":"1773414002297","amount":"900","type":"expense","category":"Bills","subcategory":"Electricity","date":"2026-03-10","paymentMethod":"UPI"},{"id":"1773413954748","amount":"8000","type":"expense","category":"Bills","subcategory":"Rent","date":"2026-03-05","paymentMethod":"UPI"},{"id":"1773413913399","amount":"40000","type":"income","category":"Salary","subcategory":"Salary","date":"2026-03-01","paymentMethod":"UPI"},{"id":1773625639918.418,"amount":5200,"type":"income","category":"Salary","subcategory":"Salary","date":"2026-02-03","paymentMethod":"Cash"},{"id":1773625639918.7908,"date":"2026-02-04","type":"expense","category":"Food","amount":220,"description":"Restaurant lunch\r"},{"id":1773625639918.5486,"date":"2026-02-05","type":"expense","category":"Shopping","amount":350,"description":"Clothing purchase\r"},{"id":1773625639918.0674,"date":"2026-02-06","type":"expense","category":"Bills","amount":400,"description":"Electricity bill\r"},{"id":1773625639918.6982,"date":"2026-02-08","type":"expense","category":"Food","amount":200,"description":"Groceries\r"},{"id":1773625639918.013,"date":"2026-02-10","type":"income","category":"Investments","amount":900,"description":"Stock dividend\r"},{"id":1773625639918.8845,"date":"2026-02-12","type":"expense","category":"Food","amount":210,"description":"Supermarket\r"},{"id":1773625639918.4077,"date":"2026-02-13","type":"expense","category":"Shopping","amount":300,"description":"Online shopping\r"},{"id":1773625639918.8093,"date":"2026-02-14","type":"expense","category":"Entertainment","amount":180,"description":"Valentine dinner\r"},{"id":1773625639918.816,"date":"2026-02-16","type":"expense","category":"Bills","amount":350,"description":"Internet bill\r"},{"id":1773625639918.23,"date":"2026-02-17","type":"expense","category":"Food","amount":190,"description":"Grocery refill\r"},{"id":1773625639918.441,"date":"2026-02-18","type":"expense","category":"Education","amount":250,"description":"Online course\r"},{"id":1773625639918.715,"date":"2026-02-20","type":"income","category":"Business","amount":1200,"description":"Freelance project\r"},{"id":1773625639918.7007,"date":"2026-02-21","type":"expense","category":"Food","amount":210,"description":"Dinner outside\r"},{"id":1773625639918.6514,"date":"2026-02-22","type":"expense","category":"Shopping","amount":280,"description":"Accessories\r"},{"id":1773625639918.1594,"date":"2026-02-24","type":"expense","category":"Entertainment","amount":160,"description":"Streaming subscription\r"},{"id":1773625639918.1958,"date":"2026-02-26","type":"expense","category":"Bills","amount":420,"description":"Water bill\r"},{"id":1773625639918.1533,"date":"2026-02-27","type":"expense","category":"Food","amount":230,"description":"Groceries\r"}]
+  ],
+  budgets: [
+      [{"id":"1773422107845","category":"Food","limit":5000},{"id":"1773422140809","category":"Transport","limit":900},{"id":"1773422180023","category":"Bills","limit":12000},{"id":"1773422210006","category":"Shopping","limit":10000},{"id":"1773424707788","category":"Travel","limit":3000},{"id":"1773424802566","category":"Education","limit":1000},{"id":"1773425095282","category":"Others","limit":3000},{"id":"1773425107746","category":"Others","limit":3000},{"id":"1773462639480","category":"Education","limit":2000},{"id":"1773462802236","category":"Entertainment","limit":3000},{"id":"1773462859505","category":"Others","limit":3000},{"id":"1773464871797","category":"Travel","limit":3000},{"id":"1773464945517","category":"Others","limit":3000},{"category":"Health","limit":6000,"id":"1773466534449"}]
+  ],
+  goals: [
+    [{"name":"Buy a Bike","target":30000,"saved":9800,"lastUpdated":"2026-03-18T15:22:58.699Z","id":"1773839786434"},{"name":"Emergency ","target":10000,"saved":2000,"lastUpdated":"2026-03-18T15:23:09.534Z","id":"1773847292423"}]
+  ],
+};
 /* -----------------------------
 INITIAL STATE
 ------------------------------*/
 
 const initialState = {
-  transactions: [],
+  transactions: defaultData.transactions,
   expenseCategories,
   incomeCategories,
-  budgets: [],
-  goals: [],
+  budgets: defaultData.budgets,
+  goals: defaultData.goals,
 };
 
 /* -----------------------------
@@ -110,11 +120,20 @@ function financeReducer(state, action) {
         ),
       };
 
-    case "IMPORT_TRANSACTIONS":
-      return {
-        ...state,
-        transactions: [...state.transactions, ...action.payload],
-      };
+  
+case "IMPORT_TRANSACTIONS":
+  const merged = [...state.transactions, ...action.payload];
+
+  const unique = merged.filter(
+    (item, index, self) =>
+      index === self.findIndex((t) => t.id === item.id)
+  );
+
+  return {
+    ...state,
+    transactions: unique,
+  };
+
 
     case "ADD_BUDGET":
       return {
@@ -174,10 +193,13 @@ PROVIDER
 
 export function FinanceProvider({ children }) {
   const storedData = localStorage.getItem("financeData");
-
+const parsedData = storedData ? JSON.parse(storedData) : null;
   const [state, dispatch] = useReducer(
     financeReducer,
-    storedData ? JSON.parse(storedData) : initialState,
+    parsedData && parsedData.transactions?.length > 0
+     ? parsedData
+    : initialState
+    
   );
 
   useEffect(() => {
