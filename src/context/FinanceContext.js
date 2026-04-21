@@ -69,7 +69,7 @@ const incomeCategories = [
 ];
 
 const defaultData = {
-  transactions: [
+  transactions: 
     [
       {
         id: "1773811124626",
@@ -601,8 +601,8 @@ const defaultData = {
         description: "Water bill and maintenance charges\r",
       },
     ],
-  ],
-  budgets: [
+  
+  budgets: 
     [
       {
         id: "1773422107845",
@@ -675,8 +675,8 @@ const defaultData = {
         id: "1773466534449",
       },
     ],
-  ],
-  goals: [
+  
+  goals: 
     [
       {
         name: "Buy a Bike",
@@ -693,7 +693,7 @@ const defaultData = {
         id: "1773847292423",
       },
     ],
-  ],
+  
 };
 /* -----------------------------
 INITIAL STATE
