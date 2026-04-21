@@ -7,7 +7,7 @@ import {
   FaChartLine,
   FaFileAlt,
   FaCog,
-  FaBars
+  FaBars,
 } from "react-icons/fa";
 
 import "../styles/sidebar.css";
@@ -17,18 +17,27 @@ const menu = [
   { name: "Transactions", icon: <FaExchangeAlt />, path: "/transactions" },
   { name: "Budgets", icon: <FaWallet />, path: "/budgets" },
   { name: "Analytics", icon: <FaChartLine />, path: "/analytics" },
-
   { name: "Reports", icon: <FaFileAlt />, path: "/reports" },
-  { name: "Settings", icon: <FaCog />, path: "/settings" }
+  { name: "Settings", icon: <FaCog />, path: "/settings" },
 ];
 
-function Sidebar({open}) {
+function Sidebar({ open, toggleSidebar }) {
   const [collapsed, setCollapsed] = useState(false);
 
+  const handleMenuClick = () => {
+    // only auto close on mobile
+    if (window.innerWidth <= 1024) {
+      toggleSidebar(false);
+    }
+  };
+
   return (
-    
-        <aside className={`sidebar ${collapsed ? "collapsed" : ""} ${open ? "open" : ""}`}>
-      {/* Top Brand + Toggle */}
+    <aside
+      className={`sidebar ${collapsed ? "collapsed" : ""} ${
+        open ? "open" : ""
+      }`}
+    >
+      {/* Header */}
       <div className="sidebar-header">
         {!collapsed && <h2 className="logo">FinancePro</h2>}
 
@@ -41,13 +50,13 @@ function Sidebar({open}) {
         </button>
       </div>
 
-      {/* Navigation */}
+      {/* Menu */}
       <nav className="menu">
-
         {menu.map((item) => (
           <NavLink
             key={item.name}
             to={item.path}
+            onClick={handleMenuClick}
             className={({ isActive }) =>
               isActive ? "menu-item active" : "menu-item"
             }
@@ -57,9 +66,7 @@ function Sidebar({open}) {
             {!collapsed && <span className="label">{item.name}</span>}
           </NavLink>
         ))}
-
       </nav>
-
     </aside>
   );
 }

@@ -11,7 +11,7 @@ return(
 
 <div className="layout">
 
-<Sidebar open={sidebarOpen}/>
+<Sidebar open={sidebarOpen}  toggleSidebar={setSidebarOpen}/>
 
 <div className="main">
 
